@@ -110,6 +110,6 @@ router.delete('/comment/:id/:commentid', passport.authenticate('jwt', {session: 
     post.save().then(res.json(post));
 
  
-    });
+    }).catch(err=> res.status(400).json(err));
 });
 module.exports = router;

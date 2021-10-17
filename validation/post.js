@@ -12,11 +12,13 @@ module.exports = function validatePostInput(data){
 
     data.text = !isEmpty(data.text) ? data.text : '';
 
-    //text validation
 
+    //text validation
     if(! validator.isLength(data.text, {min:10, max:300})){
         err.text = 'Post must be between 10 and 300 characters';
     }
+
+    
     if( isEmpty(data.text)){
         err.text = 'Post cannot be empty';
     }
@@ -26,4 +28,5 @@ return({
     errors: err,
     isValid: isEmpty(err)
 });
+
 }
